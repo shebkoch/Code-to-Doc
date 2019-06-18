@@ -4,6 +4,7 @@ from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.text import WD_COLOR_INDEX
 from docx.shared import Pt, RGBColor, Mm
+import io
 
 if __name__ == '__main__':
 
@@ -33,7 +34,7 @@ if __name__ == '__main__':
     section(document)
 
     for filename in Path(argv[1]).glob('**/*.'+argv[2]):
-        fr = open(str(filename), 'r')
+        fr = io.open(str(filename), mode="r", encoding="utf-8")
         document.add_paragraph(filename.name, style='filename')
         document.add_paragraph(fr.read())
 
