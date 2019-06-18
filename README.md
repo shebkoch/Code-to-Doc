@@ -4,5 +4,5 @@
 ```
 where:
 * D:\YOURPROJECT is your project folder 
-* cs is your file extension 
+* cs is your file extension (* for any)
 * code.docx is your output file
