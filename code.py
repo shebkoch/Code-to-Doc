@@ -3,7 +3,7 @@ from pathlib import Path
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.text import WD_COLOR_INDEX
-from docx.shared import Pt, RGBColor
+from docx.shared import Pt, RGBColor, Mm
 
 if __name__ == '__main__':
 
@@ -20,9 +20,17 @@ if __name__ == '__main__':
         normalFont = normalStyle.font
         normalFont.name = 'Courier New'
         normalFont.size = Pt(10)
-
+    def section(document):
+        sections = document.sections[0]
+        sections.bottom_margin  = Mm(20)
+        sections.top_margin  = Mm(20)
+        sections.left_margin = Mm(20)
+        sections.right_margin = Mm(20)
+        section.page_height  = Mm(215.90)
+        section.page_width = Mm(279.40)
     document = Document()
     styles(document)
+    section(document)
 
     for filename in Path(argv[1]).glob('**/*.'+argv[2]):
         fr = open(str(filename), 'r')
