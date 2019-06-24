@@ -39,12 +39,3 @@ if __name__ == '__main__':
         document.add_paragraph(fr.read())
 
     document.save(argv[3])
-
-
-
-    # fr = open(argv[1], 'r')
-    # str = fr.read()
-    # hash = hashlib.sha1(str.encode()).hexdigest()
-    # fw = open(argv[2], 'w')
-    # print(hash)
-    # fw.write(hash)
